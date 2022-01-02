@@ -63,6 +63,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+#include "autocache.h"
 #if defined(_OPENMP)                                                           //(5.1.013)
   #include <omp.h>                                                             //
 #else                                                                          //
@@ -949,7 +950,7 @@ void openFiles(char *f1, char *f2, char *f3)
     }
 
     // --- open input and report files
-    if ((Finp.file = fopen(f1,"rt")) == NULL)
+    if ((Finp.file = fopen_cached(f1,"rt")) == NULL)
     {
         writecon(FMT12);
         writecon(f1);
