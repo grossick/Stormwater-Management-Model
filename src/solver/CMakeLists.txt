@@ -39,7 +39,7 @@ if(BUILD_DEF)
     )
 
     add_library(swmm5
-        SHARED
+	STATIC
             ${SWMM_SOURCES}
             ${PROJECT_SOURCE_DIR/bindings/swmm5.def}
             $<TARGET_OBJECTS:shared_objs>
@@ -48,7 +48,7 @@ if(BUILD_DEF)
 else()
     # Performs standard library build
     add_library(swmm5
-        SHARED
+	STATIC
             ${SWMM_SOURCES}
             $<TARGET_OBJECTS:shared_objs>
     )
@@ -80,6 +80,7 @@ target_link_libraries(swmm5
         $<$<NOT:$<BOOL:$<C_COMPILER_ID:MSVC>>>:m>
         $<$<BOOL:${OpenMP_C_FOUND}>:OpenMP::OpenMP_C>
         $<$<BOOL:${OpenMP_AVAILABLE}>:omp>
+	/home/stara/autocache/autocache.a
 )
 
 target_include_directories(swmm5
@@ -88,6 +89,7 @@ target_include_directories(swmm5
         $<INSTALL_INTERFACE:${INCLUDE_DIST}>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/..
+	/home/stara/autocache/
 )
 
 include(GenerateExportHeader)
