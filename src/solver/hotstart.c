@@ -45,6 +45,7 @@
 #include <string.h>
 #include <math.h>
 #include "headers.h"
+#include "autocache.h"
 
 //-----------------------------------------------------------------------------
 //  Local Variables

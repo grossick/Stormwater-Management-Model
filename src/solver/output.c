@@ -37,6 +37,7 @@
 
 #include "headers.h"
 #include "version.h"
+#include "autocache.h"
 
 // Definition of 4-byte integer, 4-byte real and 8-byte real types
 #define INT4  int

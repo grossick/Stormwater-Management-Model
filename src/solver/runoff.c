@@ -41,6 +41,7 @@
 #include <stdlib.h>
 #include "headers.h"
 #include "odesolve.h"
+#include "autocache.h"
 
 //-----------------------------------------------------------------------------
 // Shared variables

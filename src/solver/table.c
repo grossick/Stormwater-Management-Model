@@ -29,6 +29,7 @@
 #include <math.h>
 #include <string.h>
 #include "headers.h"
+#include "autocache.h"
 
 //-----------------------------------------------------------------------------
 //  Local functions

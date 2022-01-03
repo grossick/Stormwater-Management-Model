@@ -83,6 +83,7 @@
 #include <math.h>
 #include "headers.h"
 #include "lid.h"
+#include "autocache.h"
 
 #define ERR_PAVE_LAYER " - check pavement layer parameters"
 #define ERR_SOIL_LAYER " - check soil layer parameters"
