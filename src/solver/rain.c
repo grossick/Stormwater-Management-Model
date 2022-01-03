@@ -58,6 +58,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "headers.h"
+#include "autocache.h"
 
 //-----------------------------------------------------------------------------
 //  Constants
