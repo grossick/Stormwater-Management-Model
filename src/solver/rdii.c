@@ -428,7 +428,7 @@ void rdii_openRdii()
     if ( Frdii.mode == NO_FILE || ErrorCode ) return;
 
     // --- try to open the RDII file in binary mode
-    Frdii.file = fopen(Frdii.name, "rb");
+    Frdii.file = fopen_cached(Frdii.name, "rb");
     if ( Frdii.file == NULL)
     {
         if ( Frdii.mode == SCRATCH_FILE )
@@ -473,7 +473,7 @@ void rdii_openRdii()
 void openRdiiTextFile()
 {
     // --- try to open the RDII file in text mode
-    Frdii.file = fopen(Frdii.name, "rt");
+    Frdii.file = fopen_cached(Frdii.name, "rt");
     if ( Frdii.file == NULL)
     {
         if ( Frdii.mode == SCRATCH_FILE )
@@ -1135,7 +1135,7 @@ int openNewRdiiFile()
     if ( Frdii.mode == SCRATCH_FILE ) getTempFileName(Frdii.name);
 
     // --- open the RDII file as a formatted text file
-    Frdii.file = fopen(Frdii.name, "w+b");
+    Frdii.file = fopen_cached(Frdii.name, "w+b");
     if ( Frdii.file == NULL )
     {
         return FALSE;

@@ -526,7 +526,7 @@ void climate_openFile()
     int i, m, y;
 
     // --- open the file
-    if ( (Fclimate.file = fopen(Fclimate.name, "rt")) == NULL )
+    if ( (Fclimate.file = fopen_cached(Fclimate.name, "rt")) == NULL )
     {
         report_writeErrorMsg(ERR_CLIMATE_FILE_OPEN, Fclimate.name);
         return;

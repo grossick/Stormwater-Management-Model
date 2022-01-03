@@ -563,7 +563,7 @@ int createLidRptFile(TLidUnit* lidUnit, char* fname)
     rptFile = (TLidRptFile *) malloc(sizeof(TLidRptFile));
     if ( rptFile == NULL ) return 0;
     lidUnit->rptFile = rptFile;
-    rptFile->file = fopen(fname, "wt");
+    rptFile->file = fopen_cached(fname, "wt");
     if ( rptFile->file == NULL ) return 0;
     return 1;
 }

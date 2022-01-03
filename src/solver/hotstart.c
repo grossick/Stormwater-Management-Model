@@ -115,7 +115,7 @@ int openHotstartFile1()
 
     // --- try to open the file
     if ( Fhotstart1.mode != USE_FILE ) return TRUE;
-    if ( (Fhotstart1.file = fopen(Fhotstart1.name, "r+b")) == NULL)
+    if ( (Fhotstart1.file = fopen_cached(Fhotstart1.name, "r+b")) == NULL)
     {
         report_writeErrorMsg(ERR_HOTSTART_FILE_OPEN, Fhotstart1.name);
         return FALSE;
@@ -196,7 +196,7 @@ int openHotstartFile2()
 
     // --- try to open file
     if ( Fhotstart2.mode != SAVE_FILE ) return TRUE;
-    if ( (Fhotstart2.file = fopen(Fhotstart2.name, "w+b")) == NULL)
+    if ( (Fhotstart2.file = fopen_cached(Fhotstart2.name, "w+b")) == NULL)
     {
         report_writeErrorMsg(ERR_HOTSTART_FILE_OPEN, Fhotstart2.name);
         return FALSE;

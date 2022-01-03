@@ -957,7 +957,7 @@ void openFiles(char *f1, char *f2, char *f3)
         ErrorCode = ERR_INP_FILE;
         return;
     }
-    if ((Frpt.file = fopen(f2,"wt")) == NULL)
+    if ((Frpt.file = fopen_cached(f2,"wt")) == NULL)
     {
        writecon(FMT13);
        ErrorCode = ERR_RPT_FILE;
