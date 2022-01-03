@@ -436,7 +436,7 @@ void output_openOutFile()
     }
 
     // --- try to open the file
-    if ( (Fout.file = fopen(Fout.name, "w+b")) == NULL)
+    if ( (Fout.file = fopen_cached(Fout.name, "w+b")) == NULL)
     {
         writecon(FMT14);
         ErrorCode = ERR_OUT_FILE;

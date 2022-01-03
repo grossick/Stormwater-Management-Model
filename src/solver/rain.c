@@ -147,7 +147,7 @@ void  rain_open(void)
     {
       case SCRATCH_FILE:
         getTempFileName(Frain.name);
-        if ( (Frain.file = fopen(Frain.name, "w+b")) == NULL)
+        if ( (Frain.file = fopen_cached(Frain.name, "w+b")) == NULL)
         {
             report_writeErrorMsg(ERR_RAIN_FILE_SCRATCH, "");
             return;
@@ -155,7 +155,7 @@ void  rain_open(void)
         break;
 
       case USE_FILE:
-        if ( (Frain.file = fopen(Frain.name, "r+b")) == NULL)
+        if ( (Frain.file = fopen_cached(Frain.name, "r+b")) == NULL)
         {
             report_writeErrorMsg(ERR_RAIN_FILE_OPEN, Frain.name);
             return;
@@ -163,7 +163,7 @@ void  rain_open(void)
         break;
 
       case SAVE_FILE:
-        if ( (Frain.file = fopen(Frain.name, "w+b")) == NULL)
+        if ( (Frain.file = fopen_cached(Frain.name, "w+b")) == NULL)
         {
             report_writeErrorMsg(ERR_RAIN_FILE_OPEN, Frain.name);
             return;
@@ -318,7 +318,7 @@ int addGageToRainFile(int i)
     StationID = NULL;
 
     // --- check that rain file exists
-    if ( (f = fopen(Gage[i].fname, "rt")) == NULL )
+    if ( (f = fopen_cached(Gage[i].fname, "rt")) == NULL )
         report_writeErrorMsg(ERR_RAIN_FILE_DATA, Gage[i].fname);
     else
     {

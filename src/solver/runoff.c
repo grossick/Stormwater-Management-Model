@@ -109,12 +109,12 @@ int runoff_open()
     switch ( Frunoff.mode )
     {
       case USE_FILE:
-        if ( (Frunoff.file = fopen(Frunoff.name, "r+b")) == NULL)
+        if ( (Frunoff.file = fopen_cached(Frunoff.name, "r+b")) == NULL)
             report_writeErrorMsg(ERR_RUNOFF_FILE_OPEN, Frunoff.name);
         else runoff_initFile();
         break;
       case SAVE_FILE:
-        if ( (Frunoff.file = fopen(Frunoff.name, "w+b")) == NULL)
+        if ( (Frunoff.file = fopen_cached(Frunoff.name, "w+b")) == NULL)
             report_writeErrorMsg(ERR_RUNOFF_FILE_OPEN, Frunoff.name);
         else runoff_initFile();
         break;

@@ -92,7 +92,7 @@ float  getNodeValue(data_t *p_data, int timeIndex, int nodeIndex, SMO_nodeAttrib
 float  getLinkValue(data_t *p_data, int timeIndex, int linkIndex, SMO_linkAttribute attr);
 float  getSystemValue(data_t *p_data, int timeIndex, SMO_systemAttribute attr);
 
-int   _fopen(FILE **f, const char *name, const char *mode);
+int   _fopen_cached(FILE **f, const char *name, const char *mode);
 int   _fseek(FILE *stream, F_OFF offset, int whence);
 F_OFF _ftell(FILE *stream);
 
@@ -180,7 +180,7 @@ int EXPORT_OUT_API SMO_open(SMO_Handle p_handle, const char *path)
         strncpy(p_data->name, path, MAXFILENAME);
 
         // Attempt to open binary output file for reading only
-        if ((_fopen(&(p_data->file), path, "rb")) != 0)
+        if ((_fopen_cached(&(p_data->file), path, "rb")) != 0)
             errorcode = 434;
 
         // --- validate the output file
@@ -1122,16 +1122,16 @@ float getSystemValue(data_t *p_data, int timeIndex, SMO_systemAttribute attr) {
     return value;
 }
 
-int _fopen(FILE **f, const char *name, const char *mode) {
+int _fopen_cached(FILE **f, const char *name, const char *mode) {
     //
-    //  Purpose: Substitute for fopen_s on platforms where it doesn't exist
-    //  Note: fopen_s is part of C++11 standard
+    //  Purpose: Substitute for fopen_cached_s on platforms where it doesn't exist
+    //  Note: fopen_cached_s is part of C++11 standard
     //
     int ret = 0;
 #ifdef _MSC_VER
-    ret = (int)fopen_s(f, name, mode);
+    ret = (int)fopen_cached_s(f, name, mode);
 #else
-    *f = fopen(name, mode);
+    *f = fopen_cached(name, mode);
     if (!*f)
         ret = -1;
 #endif

@@ -285,7 +285,7 @@ int   table_validate(TTable *table)
     // --- open external file if used as the table's data source
     if ( table->file.mode == USE_FILE )
     {
-        table->file.file = fopen(table->file.name, "rt");
+        table->file.file = fopen_cached(table->file.name, "rt");
         if ( table->file.file == NULL ) return ERR_TABLE_FILE_OPEN;
     }
 

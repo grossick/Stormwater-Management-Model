@@ -316,7 +316,7 @@ void openFileForOutput()
     int i, n;
 
     // --- open the routing file for writing text
-    Foutflows.file = fopen(Foutflows.name, "wt");
+    Foutflows.file = fopen_cached(Foutflows.name, "wt");
     if ( Foutflows.file == NULL )
     {
         report_writeErrorMsg(ERR_ROUTING_FILE_OPEN, Foutflows.name);
@@ -382,7 +382,7 @@ void openFileForInput()
     char  s[MAXLINE+1];                // general string variable
 
     // --- open the routing interface file for reading text
-    Finflows.file = fopen(Finflows.name, "rt");
+    Finflows.file = fopen_cached(Finflows.name, "rt");
     if ( Finflows.file == NULL )
     {
         report_writeErrorMsg(ERR_ROUTING_FILE_OPEN, Finflows.name);
