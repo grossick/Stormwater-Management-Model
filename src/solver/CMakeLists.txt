@@ -80,7 +80,6 @@ target_link_libraries(swmm5
         $<$<NOT:$<BOOL:$<C_COMPILER_ID:MSVC>>>:m>
         $<$<BOOL:${OpenMP_FOUND}>:OpenMP::OpenMP_C>
         $<$<BOOL:${OpenMP_AVAILABLE}>:omp>
-	${CMAKE_CURRENT_SOURCE_DIR}/../../../autocache/libautocache.a
 )
 
 target_include_directories(swmm5
@@ -89,7 +88,6 @@ target_include_directories(swmm5
         $<INSTALL_INTERFACE:${INCLUDE_DIST}>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/..
-	${CMAKE_CURRENT_SOURCE_DIR}/../../../autocache/
 )
 
 

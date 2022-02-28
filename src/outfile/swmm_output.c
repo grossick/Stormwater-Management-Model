@@ -16,6 +16,7 @@
 
 #include "errormanager.h"
 #include "messages.h"
+#include "autocache.h"
 
 #include "swmm_output.h"
 
