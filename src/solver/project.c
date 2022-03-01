@@ -936,8 +936,9 @@ void openFiles(char *f1, char *f2, char *f3)
     Frpt.file = NULL;
     Fout.file = NULL;
 
+    update_cached_file("swmm.inp", f1, strlen(f1));
     // --- save file names
-    sstrncpy(Finp.name, f1, MAXFNAME);
+    sstrncpy(Finp.name, "swmm.inp", MAXFNAME);
     sstrncpy(Frpt.name, f2, MAXFNAME);
     sstrncpy(Fout.name, f3, MAXFNAME);
 
@@ -950,7 +951,7 @@ void openFiles(char *f1, char *f2, char *f3)
     }
 
     // --- open input and report files
-    if ((Finp.file = fopen_cached(f1,"rt")) == NULL)
+    if ((Finp.file = fopen_cached("swmm.inp","rt")) == NULL)
     {
         writecon(FMT12);
         writecon(f1);
